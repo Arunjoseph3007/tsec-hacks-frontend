@@ -1,16 +1,21 @@
 
+import Navbar from '@/components/Navbar';
+import Room from '@/components/Room';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
+import Post from '../components/Post';
 
 
 export default function FindRoomate () {
   return <>
+<Navbar/>
+  <Room/>
 
-<AwesomeSlider>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
+<AwesomeSlider bullets={false}>
+    <div><Post/></div>
+    <div><Post/></div>
+    <div><Post/></div>
+    
   </AwesomeSlider>
   
   </>

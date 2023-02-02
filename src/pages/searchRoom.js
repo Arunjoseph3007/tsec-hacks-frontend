@@ -75,7 +75,10 @@ export default function SearchPage(props) {
         </div>
       </section>
 
-      <div className="grid grid-cols-3 items-center">
+      <div className="grid grid-cols-3 items-center gap-4">
+        <div className="flex justify-center items-center">
+          <RoomCard/>
+        </div>
         <div className="flex justify-center items-center">
           <RoomCard/>
         </div>
