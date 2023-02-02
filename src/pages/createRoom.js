@@ -1,7 +1,9 @@
 import Footer from "@/components/Footer";
 import ImageInput from "@/components/ImageInput";
 import Navbar from "@/components/Navbar";
+import axios from "@/libs/axios";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function NewRoom() {
   const [roomDetails, setRoomDetails] = useState({
@@ -27,11 +29,17 @@ export default function NewRoom() {
   const handleChange = (e) =>
     setRoomDetails((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-    } catch (error) {}
+      const { data } = await axios.post("/main/room-list", roomDetails);
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
   };
 
   return (
