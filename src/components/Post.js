@@ -1,25 +1,28 @@
+import Link from "next/link"
 import React from "react"
 
 import { team } from "../data/Data"
 
 
-const Post = () => {
+const Post = ({post}) => {
+
+
 
 
   return (
     <>
+    
 <div class="flex justify-center">
-      <div class="flex " style={{height:'70%',width:'50%'}}>
+      <div class="flex " style={{height:'60%',width:'50%'}}>
         <div class="flex-1">
           <div class="bg-white shadow mr-8">
             <div class="px-6 py-6 pb-0 border-green">
             
-              <img src="/1.jpg"  class="rounded-full h-32 w-56 mx-auto block mb-3 -mt-6 shadow-md"/>
-              <div class="text-center text-xl mb-2">Brandi</div>
-              <div class="text-center text-grey-dark mb-6">21 <span class="text-grey-light px-1">&bullet;</span> Whittier, California</div>
+              <img src={`${process.env.NEXT_PUBLIC_API}${post.user_id.profile_pic}`}  class="rounded-full object-contain h-32 mx-auto block mb-3 -mt-6 shadow-md"/>
+
               <div class="text-center mb-6 flex flex-wrap justify-center">
-                <span class="border-2 border-grey-light px-4 py-2 rounded-full text-sm text-grey-darker mr-1 mb-1">3 miles away</span>
-                <span class="border-2 border-grey-light px-4 py-2 rounded-full text-sm text-grey-darker mr-1 mb-1">5* reviews</span>
+                {post.tagz.map((tag)=><span class="border-2 border-grey-light px-4 py-2 rounded-full text-sm text-grey-darker mr-1 mb-1">{tag}</span>)}
+
               </div>
               <div class="border-1 border-grey-light mb-4 mx-8">
 
@@ -31,13 +34,15 @@ const Post = () => {
 
               </div>
             </div>
-            <div className="bg-blue">
-            <a href="#" className="text-center block font-semibold uppercase  hover:text-white no-underline text-grey-darkest py-4">
-               View Profile
-            </a>
+            <Link href={`/${post.user_id.user_id}`}>
+            <div className="flex justify-center bg-blue">
+             <button className="btn btn-primary btn-wide">View Profile</button>
             </div>
+            </Link>
           </div>
+          
         </div>
+        
         
     </div>
     </div>

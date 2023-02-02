@@ -10,6 +10,12 @@ export default function SearchPage(props) {
     locality: "",
   });
   const [rooms, setRooms] = useState([]);
+  useEffect(()=>{
+    getRooms()
+
+
+  },[])
+  
   const getRooms = async () => {
     try {
       const res = await axios.get(
