@@ -1,3 +1,5 @@
+import Awards from "@/components/Awards";
+import Featured from "@/components/Featured";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
@@ -14,6 +16,8 @@ export default function Home() {
       </Head>
       <Navbar />
       <Hero />
+      <Featured />
+      <Awards />
       <Footer />
     </>
   );
