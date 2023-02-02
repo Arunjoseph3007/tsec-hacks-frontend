@@ -1,9 +1,37 @@
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import RoomCard from "@/components/RoomCard";
+import axios from "@/libs/axios";
 
 export default function SearchPage(props) {
-  const [searchPara, setsearchPara] = useState({ city: "", range: null, locality: "" });
+  const [searchPara, setsearchPara] = useState({
+    city: "",
+    range: 20000,
+    locality: "",
+  });
+  const [rooms, setRooms] = useState([]);
+  const getRooms = async () => {
+    try {
+      const res = await axios.get(
+        `/main/room-list?city=${searchPara.city}&locality=${searchPara.locality}&rent_range=${searchPara.range}`
+      );
+      console.log(res.data);
+      setRooms(
+        res.data.map((room) => ({
+          imgUrl: room.image1,
+          desc: room.extra_details,
+          city: room.city,
+          locality: room.locality,
+          price: room.rent_cost,
+          rating: room.rating,
+          roomid:room.id
+        }))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -53,6 +81,7 @@ export default function SearchPage(props) {
                 className="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                 type="button"
                 id="button-addon2"
+                onClick={getRooms}
               >
                 <svg
                   aria-hidden="true"
@@ -76,24 +105,19 @@ export default function SearchPage(props) {
       </section>
 
       <div className="grid grid-cols-3 items-center gap-4">
-        <div className="flex justify-center items-center">
-          <RoomCard/>
-        </div>
-        <div className="flex justify-center items-center">
-          <RoomCard/>
-        </div>
-        <div className="flex justify-center items-center">
-          <RoomCard/>
-        </div>
-        <div className="flex justify-center items-center">
-          <RoomCard/>
-        </div>
-        <div className="flex justify-center items-center">
-          <RoomCard/>
-        </div>
-        <div className="flex justify-center items-center">
-          <RoomCard/>
-        </div>
+        {rooms.map((room) => (
+          <div className="flex justify-center items-center">
+            <RoomCard
+              imgUrl={room.imgUrl}
+              desc={room.desc}
+              city={room.city}
+              locality={room.locality}
+              price={room.price}
+              rating={room.rating}
+              roomid={room.roomid}
+            />
+          </div>
+        ))}
       </div>
     </>
   );
