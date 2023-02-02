@@ -2,6 +2,19 @@
     background-color: rgb(255 255 255 / 70%) !important;
     
 }
-.awssld__wrapper{
-   
-}
+.aws-btn {
+
+    --slider-height-percentage: 44%;
+    --slider-transition-duration: 454ms;
+    --organic-arrow-thickness: 4px;
+    --organic-arrow-border-radius: 0px!important;
+    --organic-arrow-height: 21px;
+    --organic-arrow-color: #000000;
+    --control-button-width: 10%;
+    --control-button-height: 25%;
+    --control-button-background: transparent;
+    --control-bullet-color: #d2691e;
+    --control-bullet-active-color: #b3591a;
+    --loader-bar-color: #851515;
+    --loader-bar-height: 6px;
+    }
