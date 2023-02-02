@@ -2064,6 +2064,11 @@ react-icons@^4.7.1:
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.7.1.tgz#0f4b25a5694e6972677cb189d2a72eabea7a8345"
   integrity sha512-yHd3oKGMgm7zxo3EA7H2n7vxSoiGmHk5t6Ou4bXsfcgWyhfDKMpyKfhHR6Bjnn63c+YXBLBPUql9H4wPJM6sXw==
 
+react-image-data-capture@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-image-data-capture/-/react-image-data-capture-1.2.2.tgz#a3b15ff6dad22e142c5e399b60c07f878d29c021"
+  integrity sha512-Y6xZJvg5O8nHQvVYeUOVQB1Px3vpApsbJN553VheMMMiCau6D+YIt+XNVMR0cNJQJO1+HXDvEYhhU4DW+fIdZw==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -2075,11 +2080,6 @@ react-toastify@^9.1.1:
   integrity sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==
   dependencies:
     clsx "^1.1.1"
-
-react-webcam@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/react-webcam/-/react-webcam-7.0.1.tgz#8249e1d621eb4bba7e3f52135f562439d0528df3"
-  integrity sha512-8E/Eb/7ksKwn5QdLn67tOR7+TdP9BZdu6E5/DSt20v8yfW/s0VGBigE6VA7R4278mBuBUowovAB3DkCfVmSPvA==
 
 react@18.2.0:
   version "18.2.0"

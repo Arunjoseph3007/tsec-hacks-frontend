@@ -100,7 +100,6 @@ export default function AuthProvider({ children }) {
     setUser(null);
   };
 
-  console.log(user);
 
   useEffect(() => {
     setLoading(true);
