@@ -4,9 +4,12 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "@/libs/axios";
 import EditProfileModal from "@/components/EditProfileModal";
+import Link from "next/link";
+import RoomCard from "@/components/RoomCard";
 function Userid() {
   const [users, setUsers] = useState(true);
   const { query } = useRouter();
+  const [rooms, setRooms] = useState([]);
   const userid = query.userId || "";
   const getUser = async () => {
     try {
@@ -18,11 +21,32 @@ function Userid() {
       console.log(error);
     }
   };
+  const getRooms = async () => {
+    try {
+      const res = await axios.get(
+        `/main/interested-users/?user_id=${query.userId}`
+      );
+      console.log(res.data);
+      setRooms(
+        res.data.map((room) => ({
+          imgUrl: room.image1,
+          desc: room.extra_details,
+          city: room.city,
+          locality: room.locality,
+          price: room.rent_cost,
+          rating: room.rating,
+          roomid: room.id,
+        }))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     getUser();
+    getRooms();
   }, [userid]);
-  console.log(localStorage.getItem("id"));
-  console.log(query.userId);
+  console.log(users.first_name);
   return (
     <>
       <Navbar />
@@ -53,7 +77,10 @@ function Userid() {
             <div className="flex flex-col items-center">
               <div className="grid grid-cols-3 gap-5 mt-5">
                 {users?.interests?.map((interest) => (
-                  <div className="badge badge-lg badge-primary rounded-full" id={`${interest}`}>
+                  <div
+                    className="badge badge-lg badge-primary rounded-full"
+                    id={`${interest}`}
+                  >
                     {interest}
                   </div>
                 ))}
@@ -72,15 +99,50 @@ function Userid() {
                 </div>
                 <input type="checkbox" id="my-modal" className="modal-toggle" />
                 <div className="modal">
-                  <EditProfileModal
-                    firstName={users.firstName}
-                    lastName={users.lastName}
-                    photoUrl={process.env.NEXT_PUBLIC_API + users.profile_pic}
-                    interests={users.interests}
-                  />
+                  {users.first_name ? (
+                    <EditProfileModal
+                      firstName={users.first_name}
+                      lastName={users.last_name}
+                      photoUrl={process.env.NEXT_PUBLIC_API + users.profile_pic}
+                      interests={users.interests}
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </>
             )}
+            {users.is_verified || localStorage.getItem("id") != query.userId ? (
+              ""
+            ) : (
+              <div className="flex justify-center mt-[2rem]">
+                <Link href={`/verifyUser/`}>
+                  <button htmlFor="verify" className="btn btn-dark btn-sm ">
+                    Verify
+                  </button>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <div className="flex flex-col items-center w-full mt-10 ">
+                <h3 className="font-serif text-2xl underline ">Interested Posts</h3>
+              <div className="grid grid-cols-2  gap-10 mt-10">
+                {rooms.map((room) => (
+                  <div className="flex justify-center items-center">
+                    <RoomCard
+                      imgUrl={room.imgUrl}
+                      desc={room.desc}
+                      city={room.city}
+                      locality={room.locality}
+                      price={room.price}
+                      rating={room.rating}
+                      roomid={room.roomid}
+                      />
+                  </div>
+                ))}
+              </div>
+                
           </div>
         </div>
       </div>

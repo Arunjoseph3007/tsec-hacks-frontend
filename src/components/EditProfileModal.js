@@ -4,10 +4,12 @@ import { toast } from "react-toastify";
 import axios from "@/libs/axios";
 
 function EditProfileModal({firstName,lastName,photoUrl,interests}) {
-const [user,setUser]=useState({firstName:firstName,lastName:lastName,photoUrl:photoUrl})
+    console.log(firstName,lastName,photoUrl,interests)
+const [user,setUser]=useState({firstName:firstName,lastName:lastName,photoUrl:photoUrl,interests:interests.join(',')})
   const [userDetails, setUserDetails] = useState({
     firstName: user.firstName,
     lastName: user.lastName,
+    interests:user.interests
   });
   const [imageDetails, setImageDetails] = useState({
     image: user.photoUrl,
@@ -27,6 +29,7 @@ const [user,setUser]=useState({firstName:firstName,lastName:lastName,photoUrl:ph
       if (imageDetails.imageFile) {
         formdata.append("profile_pic", imageDetails.imageFile, "img.jpg");
       }
+      formdata.append("interests", userDetails.interests);
       const res = await axios.patch(
         `/accounts/MyUser/${localStorage.getItem("id")}/`,
         formdata
@@ -36,7 +39,9 @@ const [user,setUser]=useState({firstName:firstName,lastName:lastName,photoUrl:ph
         photoUrl: imageDetails.image,
         firstName: userDetails.firstName,
         lastName: userDetails.lastName,
+        interests: userDetails.interests,
       });
+      location.reload()
       toast.success("Profile Edited!");
     } catch (error) {
       e.preventDefault();
@@ -161,6 +166,24 @@ const [user,setUser]=useState({firstName:firstName,lastName:lastName,photoUrl:ph
                   />
                 </div>
               </div>
+              <div className="flex flex-row justify-evenly mt-3">
+                <div>
+                  <label
+                    htmlFor="interests"
+                    className="font-bold mb-1 text-gray-700 block"
+                  >
+                    Interest
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="interest"
+                    className="input input-bordered w-[22rem]"
+                    name="interests"
+                    onChange={handleChange}
+                    value={userDetails.interests}
+                  />
+                  </div>
+                </div>
               <div className="modal-action flex justify-center">
                 <label
                   htmlFor="my-modal"
