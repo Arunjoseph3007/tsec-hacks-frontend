@@ -20,6 +20,9 @@ export default function AuthProvider({ children }) {
 
     try {
       const { data } = await axios.get("/accounts/MyUser/" + userId + "/");
+
+      console.log(data);
+
       setUser({
         userName: data.username,
         firstName: data.first_name,
