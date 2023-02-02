@@ -16,7 +16,6 @@ export default function Home() {
       </Head>
       <Navbar />
       <Hero />
-      <i className="fa-solid fa-heart"></i>hey
       <Featured />
       <Awards />
       <Footer />

@@ -13,7 +13,7 @@ function RoomCard({
 }) {
   return (
     <>
-      <div className="card card-compact w-[20rem] bg-base-100 shadow-xl ">
+      <div className="card card-compact w-[18rem] h-[25rem] bg-base-100 shadow-xl ">
         <figure>
           <img src={process.env.NEXT_PUBLIC_API+imgUrl} alt="Photo" className="h-[10rem] w-[20rem] mt-5" />
         </figure>

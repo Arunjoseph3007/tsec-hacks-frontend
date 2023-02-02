@@ -21,14 +21,14 @@ export default function AuthProvider({ children }) {
     try {
       const { data } = await axios.get("/accounts/MyUser/" + userId + "/");
       setUser({
-        userName: data.username,
-        firstName: data.first_name,
-        lastName: data.last_name,
-        email: data.email,
-        dob: data.dob,
-        bio: data.bio,
-        photoUrl: process.env.NEXT_PUBLIC_API + data.profile_pic,
-        userId: data.user_id,
+        userName: data.Data.username,
+        firstName: data.Data.first_name,
+        lastName: data.Data.last_name,
+        email: data.Data.email,
+        dob: data.Data.dob,
+        bio: data.Data.bio,
+        photoUrl: process.env.NEXT_PUBLIC_API + data.Data.profile_pic,
+        userId: data.Data.user_id,
       });
     } catch (e) {
       setUser(null);
@@ -37,8 +37,9 @@ export default function AuthProvider({ children }) {
 
   const login = async ({ email, password }) => {
     try {
-      localStorage.removeItem('token')
+      localStorage.removeItem("token");
       const res = await axios.post(`/accounts/login/`, { email, password });
+
       setUser(res.data);
 
       localStorage.setItem("token", res.data.token);
@@ -63,7 +64,7 @@ export default function AuthProvider({ children }) {
     userName,
   }) => {
     try {
-      localStorage.removeItem('token')
+      localStorage.removeItem("token");
       const res = await axios.post(`/accounts/register/`, {
         first_name: firstName,
         last_name: lastName,
@@ -98,6 +99,7 @@ export default function AuthProvider({ children }) {
 
     setUser(null);
   };
+
 
   useEffect(() => {
     setLoading(true);
