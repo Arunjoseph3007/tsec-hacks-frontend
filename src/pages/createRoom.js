@@ -2,10 +2,12 @@ import Footer from "@/components/Footer";
 import ImageInput from "@/components/ImageInput";
 import Navbar from "@/components/Navbar";
 import axios from "@/libs/axios";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function NewRoom() {
+  const router=useRouter()
   const [roomDetails, setRoomDetails] = useState({
     extra_details: "",
     space: 0,
@@ -32,10 +34,16 @@ export default function NewRoom() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const { data } = await axios.post("/main/room-list", roomDetails);
+    const formdata = new FormData();
 
-      console.log(data);
+    Object.keys(roomDetails).forEach((key) => {
+      formdata.append(key, roomDetails[key]);
+    });
+    try {
+      const { data } = await axios.post("/main/room-list/", formdata);
+
+      toast.success('Room created successfully')
+      router.push(`/room/${data.id}`)
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -51,7 +59,7 @@ export default function NewRoom() {
       >
         <h1 className="text-2xl font-bold">Create new Room</h1>
         <hr className="border my-3" />
-        <ImageInput name="panorame_image" handleFileInput={handleFileInput} />
+        <ImageInput name="panaroma_image" handleFileInput={handleFileInput} />
 
         <div className="form-control">
           <label className="label">Description</label>
