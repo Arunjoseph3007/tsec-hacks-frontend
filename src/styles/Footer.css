@@ -1,0 +1,44 @@
+.cfooter {
+  width: 100%;
+  padding: 2rem 0;
+  background-color: #f8f8f8;
+}
+
+.cfooter .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.cfooter .col {
+  margin: auto;
+}
+
+.cfooter h3 {
+  margin: 0.8rem 0;
+}
+
+.cfooter p {
+  margin: 0.4rem 0;
+}
+
+.cfooter .social {
+  text-align: center;
+}
+
+.cfooter .icon {
+  font-size: 2rem;
+  margin: 2rem 3rem;
+  color: #5651e5;
+}
+
+@media screen and (max-width: 940px) {
+  .cfooter .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .cfooter .icon {
+    margin: 1rem;
+  }
+}
