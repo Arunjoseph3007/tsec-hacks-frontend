@@ -12,7 +12,7 @@ export default function Document() {
 <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"></link>
      
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
@@ -21,6 +21,13 @@ export default function Document() {
           rel="stylesheet"
         />
         
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </Head>
       <body>
         <Main />
