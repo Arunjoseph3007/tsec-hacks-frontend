@@ -23,7 +23,7 @@ export default function Pano({ image, style = {}, ...others }) {
 
   return (
     <div
-      style={{ height: "400px", width: "400px", ...style }}
+      style={{  ...style }}
       ref={panoRef}
       {...others}
     />
