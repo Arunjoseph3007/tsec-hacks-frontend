@@ -7,6 +7,8 @@ import "@/styles/Hero2.css"
 import "@/styles/Awards.css"
 import "@/styles/Featured.css"
 import "@/styles/Features.css"
+import "@/styles/recent.css"
+
 
 
 export default function App({ Component, pageProps }) {
