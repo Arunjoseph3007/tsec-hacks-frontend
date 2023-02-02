@@ -1,3 +1,15 @@
-export default function ProfilePage(){
-    return <h1>profile</h1>
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { useRouter } from "next/router";
+
+export default function ProfilePage() {
+  const router = useRouter();
+
+  return (
+    <div>
+      <Navbar />
+      {router.query.userId}
+      <Footer />
+    </div>
+  );
 }
