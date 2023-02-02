@@ -9,14 +9,10 @@ import "@/styles/Awards.css"
 import "@/styles/Featured.css"
 import "@/styles/Features.css"
 import "@/styles/Room.css"
-import "@/styles/Post.css"
+
 import "@/styles/recent.css"
 
 
-import "@/styles/Hero2.css";
-import "@/styles/Awards.css";
-import "@/styles/Featured.css";
-import "@/styles/Features.css";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App({ Component, pageProps }) {

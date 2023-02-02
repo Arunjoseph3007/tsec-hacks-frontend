@@ -32,7 +32,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <div style={{ width: "400px", height: "300px" }} id="panorama-view" />
+        
       </body>
     </Html>
   );

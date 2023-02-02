@@ -34,10 +34,7 @@
     font-size: 14px;
     color: grey;
   }
-  input::placeholder {
-    font-size: 17px;
-    color: black;
-  }
+
   form .box {
     padding: 15px;
     border-left: 1px solid rgba(128, 128, 128, 0.2);
