@@ -11,12 +11,14 @@ export default function SearchRoomMap() {
 
   return (
     <div style={{ height: "100vh", width: "100%" }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCpapP88laacCcLI7FvRgubkeIRHRYE1-0" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      >
-      </GoogleMapReact>
+      {typeof window !== "undefined" && (
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "AIzaSyBD_PDIetm55Ji701MfQRt0qxb955y9eMc" }}
+          defaultCenter={defaultProps.center}
+          center={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+        ></GoogleMapReact>
+      )}
     </div>
   );
 }
