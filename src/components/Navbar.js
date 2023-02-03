@@ -8,7 +8,7 @@ import { useUser } from "@/context/userContext";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const user_id=useUser()
+  const {user_id,logout}=useUser()
   console.log(user_id?.user?.userId)
 
   return (
@@ -33,9 +33,14 @@ const Navbar = () => {
             <Link href={`/${user_id?.user?.userId}`}>Profile</Link>
           </li>
         </ul>
-        <Link href="/signup" className="btn btn-primary btn-sm">
+        {localStorage.getItem('token')?<Link href="/" >
+         <button className="btn btn-primary btn-sm" onClick={logout}>
+         Sign Out
+         </button>
+          
+        </Link>:<Link href="/signup" className="btn btn-primary btn-sm">
           Sign Up
-        </Link>
+        </Link>}
 
         <div className="hamburger" onClick={handleClick}>
           {click ? (
