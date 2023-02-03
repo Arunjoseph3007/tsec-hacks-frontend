@@ -68,7 +68,10 @@ const Room = ({ roomid }) => {
     getRoom();
   }, [roomid]);
 
-  const img = `${process.env.NEXT_PUBLIC_API}${room.panaroma_image}`;
+ 
+
+  const img = `${process.env.NEXT_PUBLIC_API}${room?.panaroma_image}`;
+  console.log(img)
 
   return (
     <div className="featured">
