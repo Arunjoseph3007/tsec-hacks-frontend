@@ -34,16 +34,22 @@ export default function Signup() {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content p-[0.5rem] sm:p-[1rem] gap-[1rem] lg:gap-[8rem] flex-col lg:flex-row">
         <img
-          src="logo3.png"
+          src="logo.jpg"
           className="max-w-[10rem]  sm:max-w-sm rounded-lg"
         />
 
         <div className="card text-[0.8rem] md:text-[0.875rem] flex-shrink-0 w-full max-w-[15rem] sm:max-w-sm  shadow-lg md:shadow-2xl bg-base-100">
           {/* //? Form */}
+          
           <form
             onSubmit={handleSubmit}
             className="card-body gap-[0rem] sm:gap-[0.5rem] p-[1.4rem] sm:p-[2rem]"
           >
+            <div className="text-center text-black">
+          <h3 className="text-sm md:text-xl font-bold">
+            Sign-up to ROOMbarabar
+          </h3>
+        </div>
             {/* //@ First name last name */}
             <div className="form-control">
               <label className="label hidden md:block">

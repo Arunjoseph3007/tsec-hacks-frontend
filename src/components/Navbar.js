@@ -8,16 +8,16 @@ import { useUser } from "@/context/userContext";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const user_id=useUser()
+  const {user_id,logout}=useUser()
   console.log(user_id?.user?.userId)
 
   return (
     <div className="navbar">
       <div className="container">
         <h1 className="flex items-center gap-1">
-          <BsFillHouseFill />
-          <span>Real</span>
-          <p>Estate</p>
+          <img className="w-[6rem] h-15" src="logo.jpg" alt="ROOMbarabar"  />
+          {/* <span>ROOM</span>
+          <p>barabar</p> */}
         </h1>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li>
@@ -33,9 +33,14 @@ const Navbar = () => {
             <Link href={`/${user_id?.user?.userId}`}>Profile</Link>
           </li>
         </ul>
-        <Link href="/signup" className="btn btn-primary btn-sm">
-          Sign In
-        </Link>
+        {localStorage.getItem('token')?<Link href="/" >
+         <button className="btn btn-primary btn-sm" onClick={logout}>
+         Sign Out
+         </button>
+          
+        </Link>:<Link href="/signup" className="btn btn-primary btn-sm">
+          Sign Up
+        </Link>}
 
         <div className="hamburger" onClick={handleClick}>
           {click ? (
