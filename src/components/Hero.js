@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Hero() {
   return (
     <div
@@ -13,7 +14,8 @@ export default function Hero() {
           Find your sweet
           <br /> home
         </h1>
-        <button className="btn btn-primary">Login</button>
+        <Link href={'/login'}><button className="btn btn-primary">Login</button>
+        </Link>
       </div>
     </div>
   );
