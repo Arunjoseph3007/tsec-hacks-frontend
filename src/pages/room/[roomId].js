@@ -12,14 +12,17 @@ export default function FindRoomate() {
   const router=useRouter()
   const roomid=router.query.roomId
   const [posts,setPosts]=useState([])
- 
-
+  const [preferrence,setPreferrence]=useState([])
+  const [disable,setDisable]=useState(false)
+console.log(disable)
  const getPost=async()=>{
   try{
-   console.log('hi',roomid)
+  
     const res = await axios.get(`/main/room-detail/${roomid}`);
     console.log('this is post',res.data.Interested_Users)
+
     setPosts(res.data.Interested_Users)
+    setPreferrence(res.data.Percentage_Matches)
 
   }catch(error){
     console.log(error)
@@ -32,7 +35,7 @@ export default function FindRoomate() {
 
  const user_id=localStorage.getItem('id')
     
-    console.log(user_id)
+
 
     const handleClick=async(e)=>{
         try{
@@ -57,9 +60,10 @@ export default function FindRoomate() {
       <Navbar />
       <div class="h-full">
         <Room roomid={roomid} />
-        <div className="card-actions flex justify-center items-center">
+        {disable?'':<div className="card-actions flex justify-center items-center">
           <button onClick={handleClick} className="btn btn-primary btn-wide">Apply</button>
-        </div>
+        </div>}
+        
         <Link href={`/contact/${roomid}`}>
         <div className="card-actions flex justify-center items-center">
           <button onClick={handleClick} className="btn btn-primary btn-wide">Contact LandLord</button>
@@ -70,7 +74,7 @@ export default function FindRoomate() {
           Interested user
         </h2>
         <AwesomeSlider bullets={false}>
-        {posts?posts.map((post)=><div><Post post={post}/></div>):''}
+        {posts?posts.map((post,i)=><div><Post post={post} match={preferrence[i]} setDisable={setDisable} /></div>):''}
           
         </AwesomeSlider>
       </div>
