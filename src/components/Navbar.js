@@ -15,9 +15,9 @@ const Navbar = () => {
     <div className="navbar">
       <div className="container">
         <h1 className="flex items-center gap-1">
-          <BsFillHouseFill />
-          <span>Real</span>
-          <p>Estate</p>
+          <img className="w-[6rem] h-15" src="logo.jpg" alt="ROOMbarabar"  />
+          {/* <span>ROOM</span>
+          <p>barabar</p> */}
         </h1>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li>
@@ -34,7 +34,7 @@ const Navbar = () => {
           </li>
         </ul>
         <Link href="/signup" className="btn btn-primary btn-sm">
-          Sign In
+          Sign Up
         </Link>
 
         <div className="hamburger" onClick={handleClick}>
