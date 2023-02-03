@@ -25,15 +25,32 @@ const Navbar = () => {
           <li>
             <Link href="/">Home</Link>
           </li>
-          <li>
+         
+          {
+            localStorage.getItem('token')?
+            <li>
             <Link href="/searchRoom">Search</Link>
           </li>
-          <li>
+          :''
+
+          }
+        
+          {
+            localStorage.getItem('token')?<li>
             <Link href="/createRoom">Create Room</Link>
-          </li>
-          <li>
+          </li>:''
+
+          }
+
+          {
+            localStorage.getItem('token')?
+            <li>
             <Link href={`/${user_id?.user?.userId}`}>Profile</Link>
           </li>
+          :''
+
+          }
+          
         </ul>
         {localStorage.getItem('token')?<Link href="/" >
          <button className="btn btn-primary btn-sm" onClick={logout}>
