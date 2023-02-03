@@ -15,7 +15,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="container">
         <h1 className="flex items-center gap-1">
-          <img className="w-[6rem] h-15" src="logo.jpg" alt="ROOMbarabar"  />
+          <img className="w-[6rem] h-15" src="/logo.JPG" alt="ROOMbarabar"  />
           {/* <span>ROOM</span>
           <p>barabar</p> */}
         </h1>
