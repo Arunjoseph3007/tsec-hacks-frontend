@@ -1,31 +1,14 @@
-import { useEffect, useRef } from "react";
-import { Viewer } from "@photo-sphere-viewer/core";
+import dynamic from "next/dynamic";
 
-export default function Pano({ image, style = {}, ...others }) {
-  const panoRef = useRef();
+// import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
+const ReactPhotoSphereViewer = dynamic(
+  () =>
+    import("react-photo-sphere-viewer").then(
+      (mod) => mod.ReactPhotoSphereViewer
+    ),
+  {
+    ssr: false,
+  }
+);
 
-  useEffect(() => {
-    if (panoRef.current) {
-      const viewer = new Viewer({
-        container: panoRef.current,
-        panorama: image,
-        loadingImg:
-          "https://photo-sphere-viewer-data.netlify.app/assets/loader.gif",
-        touchmoveTwoFingers: true,
-        mousewheelCtrlKey: true,
-      });
-    }
-
-    return () => {
-      panoRef.current = null;
-    };
-  }, [panoRef, image]);
-
-  return (
-    <div
-      style={{  ...style }}
-      ref={panoRef}
-      {...others}
-    />
-  );
-}
+export default ReactPhotoSphereViewer;

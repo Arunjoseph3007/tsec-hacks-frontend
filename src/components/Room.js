@@ -5,8 +5,6 @@ import Rating from "./Rating";
 import axios from "@/libs/axios";
 
 const Room = ({ roomid }) => {
-
-   
   const [room, setRoom] = useState({
     address: "",
     city: "",
@@ -40,7 +38,7 @@ const Room = ({ roomid }) => {
   const getRoom = async () => {
     try {
       const res = await axios.get(`/main/room-detail/${roomid}`);
-      
+
       setRoom({
         address: res.data.Room.address,
         city: res.data.Room.city,
@@ -72,7 +70,8 @@ const Room = ({ roomid }) => {
 
  
 
-  const img = `${process.env.NEXT_PUBLIC_API}${room.panaroma_image}`;
+  const img = `${process.env.NEXT_PUBLIC_API}${room?.panaroma_image}`;
+  console.log(img)
 
   return (
     <div className="featured">
@@ -81,9 +80,11 @@ const Room = ({ roomid }) => {
       </h2>
 
       <div className="container1">
-        <Pano className="span-3 image-grid-row-2" image={img} />
+        <div className="span-3 image-grid-row-2">
+          <Pano src={img} height="100%" width="100%" />
+        </div>
 
-        <img src={`${process.env.NEXT_PUBLIC_API}${room.image1}`} alt=""/>
+        <img src={`${process.env.NEXT_PUBLIC_API}${room.image1}`} alt="" />
         <img src={`${process.env.NEXT_PUBLIC_API}${room.image2}`} />
         <img src={`${process.env.NEXT_PUBLIC_API}${room.image3}`} />
         <img src={`${process.env.NEXT_PUBLIC_API}${room.image4}`} />
@@ -109,7 +110,9 @@ const Room = ({ roomid }) => {
             <div>
               <div className="info">
                 <p className="bold">preffered tags:</p>
-                {room.preferred_tags ? room.preferred_tags.map((p) => <p>{p}</p>) : ""}
+                {room.preferred_tags
+                  ? room.preferred_tags.map((p) => <p>{p}</p>)
+                  : ""}
               </div>
             </div>
           </div>

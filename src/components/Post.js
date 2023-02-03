@@ -69,6 +69,7 @@ if(user_id==post.user_id.user_id){
               </g>
             </svg>
           </button>
+          <Link href='/chatRoom'>
           <button
             class="text-blue-900 hover:text-blue-700 p-1 sm:p-2  inline-flex items-center dark:text-gray-400 dark:hover:text-gray-30 dark:text-gray-400 dark:hover:text-gray-300">
            
@@ -79,6 +80,7 @@ if(user_id==post.user_id.user_id){
 
 
           </button>
+          </Link>
         </div>
       </div>
     </div>

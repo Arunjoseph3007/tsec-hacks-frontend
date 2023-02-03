@@ -26,6 +26,7 @@
     "react-firebase-hooks": "2.2.0",
     "react-icons": "^4.7.1",
     "react-image-data-capture": "^1.2.2",
+    "react-photo-sphere-viewer": "^3.3.0-psv5.1.0",
     "react-toastify": "^9.1.1"
   },
   "devDependencies": {
