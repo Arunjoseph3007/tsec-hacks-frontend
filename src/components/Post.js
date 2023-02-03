@@ -20,13 +20,18 @@ const Post = ({post}) => {
             
               <img src={`${process.env.NEXT_PUBLIC_API}${post.user_id.profile_pic}`}  class="rounded-full object-contain h-32 mx-auto block mb-3 -mt-6 shadow-md"/>
 
+              
+              <div class="flex justify-center border-1 border-grey-light mb-4 mx-8">
+              <h2>{post.user_id.first_name}{post.user_id.last_name}</h2>
+
+              </div>
               <div class="text-center mb-6 flex flex-wrap justify-center">
+
+
                 {post.tagz.map((tag)=><span class="border-2 border-grey-light px-4 py-2 rounded-full text-sm text-grey-darker mr-1 mb-1">{tag}</span>)}
 
               </div>
-              <div class="border-1 border-grey-light mb-4 mx-8">
-
-              </div>
+              
               <div class="text-grey-darker mb-4">
                  Happy February everyone!:D Im a pretty simple lady. I enjoy meeting with well respected people who give off good vibes. 
               </div>

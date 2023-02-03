@@ -6,7 +6,7 @@ import axios from "@/libs/axios";
 export default function SearchPage(props) {
   const [searchPara, setsearchPara] = useState({
     city: "",
-    range: 20000,
+    range:"",
     locality: "",
   });
   const [rooms, setRooms] = useState([]);
