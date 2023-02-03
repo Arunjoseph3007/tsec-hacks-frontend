@@ -60,6 +60,7 @@ console.log(disable)
       <Navbar />
       <div class="h-full">
         <Room roomid={roomid} />
+        <div className="flex justify-evenly">
         {disable?'':<div className="card-actions flex justify-center items-center">
           <button onClick={handleClick} className="btn btn-primary btn-wide">Apply</button>
         </div>}
@@ -69,7 +70,7 @@ console.log(disable)
           <button onClick={handleClick} className="btn btn-primary btn-wide">Contact LandLord</button>
         </div>
         </Link>
-
+        </div>
         <h2 class=" flex justify-center font-medium leading-tight text-4xl mt-0 mb-2 text-black-600 mt-24">
           Interested user
         </h2>

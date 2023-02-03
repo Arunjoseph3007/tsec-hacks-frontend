@@ -77,7 +77,7 @@ const Room = ({ roomid }) => {
   return (
     <div className="featured">
       <h2 class=" flex justify-center font-medium leading-tight text-4xl mt-0 mb-2 text-black-600 mb-24">
-        {room.address}
+        {room.locality}, {room.city}
       </h2>
 
       <div className="container1">
@@ -91,7 +91,7 @@ const Room = ({ roomid }) => {
           <div className="info-grid">
             <div>
               <div className="info">
-                <p className="bold">Landlord:</p>
+                <p className="bold">Address: {room.address}, {room.locality}, {room.city}</p>
               </div>
             </div>
 
