@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { data } from "autoprefixer";
 const Contact = () => {
     const router=useRouter()
-    const roomid=router.query.room_id
+    const roomid=router.query.contactId
     const [data,setData]=useState({subject:'',message:''});
     const handleChange=(e)=>{
 
