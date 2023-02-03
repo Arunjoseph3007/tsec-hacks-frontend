@@ -21,20 +21,18 @@ export default function Login() {
 
     const data = await login(userDetails);
 
-    if (data.success) router.push("/" + data.username);
+    if (data.success) router.push("/" + localStorage.getItem('id'));
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
         <div className="avatar">
-          <div div className="w-20 md:w-24">
-            <img src="/logo4.png" alt="Git" className="object-contain" />
-          </div>
+          
         </div>
         <div className="text-center ">
           <h1 className="text-sm md:text-xl font-bold">
-            Sign-in to `placeHolder`
+            Sign-in to ROOMbarabar
           </h1>
         </div>
 
