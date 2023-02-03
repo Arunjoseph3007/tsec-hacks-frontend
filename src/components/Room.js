@@ -72,7 +72,8 @@ const Room = ({ roomid }) => {
 
  
 
-  const img = `${process.env.NEXT_PUBLIC_API}${room.panaroma_image}`;
+  const img = `${process.env.NEXT_PUBLIC_API}${room?.panaroma_image}`;
+  console.log(img)
 
   return (
     <div className="featured">
@@ -81,7 +82,9 @@ const Room = ({ roomid }) => {
       </h2>
 
       <div className="container1">
-        <Pano className="span-3 image-grid-row-2" image={img} />
+{
+    img?
+ <Pano  className="span-3 image-grid-row-2" image={img} />:''}
 
         <img src={`${process.env.NEXT_PUBLIC_API}${room.image1}`} alt=""/>
         <img src={`${process.env.NEXT_PUBLIC_API}${room.image2}`} />

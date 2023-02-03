@@ -5,10 +5,11 @@ export default function Pano({ image, style = {}, ...others }) {
   const panoRef = useRef();
 
   useEffect(() => {
+    console.log('pano js',image)
     if (panoRef.current) {
       const viewer = new Viewer({
         container: panoRef.current,
-        panorama: image,
+        panorama: `${image}`,
         loadingImg:
           "https://photo-sphere-viewer-data.netlify.app/assets/loader.gif",
         touchmoveTwoFingers: true,
@@ -19,7 +20,7 @@ export default function Pano({ image, style = {}, ...others }) {
     return () => {
       panoRef.current = null;
     };
-  }, [panoRef, image]);
+  }, [panoRef,image]);
 
   return (
     <div
