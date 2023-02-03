@@ -8,8 +8,10 @@ import { useUser } from "@/context/userContext";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const {user_id,logout}=useUser()
-  console.log(user_id?.user?.userId)
+  const user_id=useUser()
+  const logout=user_id.logout
+
+ 
 
   return (
     <div className="navbar">
