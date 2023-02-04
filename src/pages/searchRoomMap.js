@@ -13,7 +13,7 @@ export default function SearchRoomMap() {
     <div style={{ height: "100vh", width: "100%" }}>
       {typeof window !== "undefined" && (
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyApKjvP4mVHWhSm20u0wAjDwku-c4Hvwi4" }}
+          bootstrapURLKeys={{ key: "" }}
           defaultCenter={defaultProps.center}
           center={defaultProps.center}
           defaultZoom={defaultProps.zoom}
