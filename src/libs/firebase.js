@@ -4,12 +4,12 @@ import "firebase/auth";
 import "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBtY1lQhD9sQe6h9y7XT5GGvEpYWNoDOEA",
-  authDomain: "tsec-hacks-e862f.firebaseapp.com",
-  projectId: "tsec-hacks-e862f",
-  storageBucket: "tsec-hacks-e862f.appspot.com",
-  messagingSenderId: "683985696378",
-  appId: "1:683985696378:web:17744077b6438eb4d46dc3",
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
 };
 
 if (!fb.apps.length) {
